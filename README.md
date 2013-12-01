@@ -8,6 +8,7 @@ The technical summary: these scripts run in Google Apps Script, so are in JavaSc
 Source services currently supported:
 
 - [x] Twitter 29/11/2013
+- [x] SuperFeeder (e.g. FourSquare, LastFM, Delicious)  01/12/2013
 - [ ] Gmail
 - [ ] FourSquare
 

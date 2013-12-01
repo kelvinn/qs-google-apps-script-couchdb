@@ -12,9 +12,9 @@
 
 function initiateTwitter() {
   // Get your Twitter keys from dev.twitter.com/apps
-  var CONSUMER_KEY = "ABCDEFGABCDEFGABCDEFGABCDEFG";
-  var CONSUMER_SECRET = "ABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFG";
-  var USERNAME = "your_username";
+  var CONSUMER_KEY = "ABCDABCDABCDABCDABCDABCD";
+  var CONSUMER_SECRET = "ABCDABCDABCDABCDABCDABCDABCDABCDABCDABCD";
+  var USERNAME = "ABCDABCDABCDABCD";
 
   ScriptProperties.setProperty("TWITTER_CONSUMER_KEY", CONSUMER_KEY);
   ScriptProperties.setProperty("TWITTER_CONSUMER_SECRET", CONSUMER_SECRET);
@@ -79,7 +79,7 @@ function fetchTwitter() {
           for (var i = 0; i < len; i++) {
 
             var sender = tweets[i].user.screen_name;
-            var message = htmlentities(tweets[i].text);
+            var message = htmlentities(tweets[i].text); // func defined in Core.gs
             var date = new Date(tweets[i].created_at);
             var coordinates = tweets[i].coordinates;
             var in_reply_to_status_id = tweets[i].in_reply_to_status_id;
@@ -155,25 +155,6 @@ function connectTwitter() {
     } catch (e) {
         Logger.log(e.toString());
     }
-}
-
-function encodeString(q) {
-    var str = encodeURIComponent(q);
-    str = str.replace(/!/g,'%21');
-    str = str.replace(/\*/g,'%2A');
-    str = str.replace(/\(/g,'%28');
-    str = str.replace(/\)/g,'%29');
-    str = str.replace(/'/g,'%27');
-    return str;
-}
-
-function htmlentities(str) {
-    str = str.replace(/&/g, "&amp;");
-    str = str.replace(/>/g, "&gt;");
-    str = str.replace(/</g, "&lt;");
-    str = str.replace(/"/g, "&quot;");
-    str = str.replace(/'/g, "&#039;");
-    return str;
 }
 
 function oAuth() {
